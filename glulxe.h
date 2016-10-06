@@ -34,9 +34,14 @@
     really a 16-bit unsigned integer type, and glsi16 to make sure
     it's really a 16-bit signed integer type. If they're not, horrible
     things will happen. */
+#ifndef __ORCAC__
 #include <stdint.h>
 typedef uint16_t glui16;
 typedef int16_t glsi16;
+#else
+typedef unsigned short glui16;
+typedef short glsi16;
+#endif
 
 /* Comment this definition to turn off memory-address checking. With
    verification on, all reads and writes to main memory will be checked
