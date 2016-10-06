@@ -45,7 +45,9 @@ static void (*glkio_unichar_han_ptr)(glui32 val) = NULL;
 static void dropcache(cacheblock_t *cablist);
 static void buildcache(cacheblock_t *cablist, glui32 nodeaddr, int depth,
   int mask);
+#if 0
 static void dumpcache(cacheblock_t *cablist, int count, int indent);
+#endif
 
 void stream_get_iosys(glui32 *mode, glui32 *rock)
 {
