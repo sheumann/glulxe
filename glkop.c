@@ -84,6 +84,10 @@
 #include "glulxe.h"
 #include "gi_dispa.h"
 
+#ifdef __ORCAC__
+segment "glkop_____";
+#endif
+
 typedef struct dispatch_splot_struct {
   int numwanted;
   int maxargs;

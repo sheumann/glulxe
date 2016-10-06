@@ -7,6 +7,10 @@
 #include "glulxe.h"
 #include "opcodes.h"
 
+#ifdef __ORCAC__
+segment "exec______";
+#endif
+
 #ifdef FLOAT_SUPPORT
 #include <math.h>
 #endif /* FLOAT_SUPPORT */
