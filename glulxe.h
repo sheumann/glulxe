@@ -59,7 +59,9 @@ typedef short glsi16;
 /* Comment this definition to turn off floating-point support. You
    might need to do this if you are building on a very limited platform
    with no math library. */
+#ifndef __ORCAC__
 #define FLOAT_SUPPORT (1)
+#endif
 
 /* Uncomment this definition to cache the original state of RAM in
    (real) memory. This speeds up save/restore/undo operations, at the
