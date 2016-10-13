@@ -74,7 +74,7 @@ typedef short glsi16;
 #define Read4(ptr)    \
   ( (glui32)((glui32)((unsigned char *)(ptr))[0] << 24)  \
   | (glui32)((glui32)((unsigned char *)(ptr))[1] << 16)  \
-  | (glui32)(((unsigned char *)(ptr))[2] << 8)   \
+  | (glui32)((glui16)((unsigned char *)(ptr))[2] << 8)   \
   | (glui32)(((unsigned char *)(ptr))[3]))
 #define Read2(ptr)    \
   ( (glui16)(((unsigned char *)(ptr))[0] << 8)  \
