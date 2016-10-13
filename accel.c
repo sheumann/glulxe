@@ -58,7 +58,7 @@ typedef struct accelentry_struct {
 
 static accelentry_t **accelentries = NULL;
 
-void init_accel()
+void init_accel(void)
 {
     accelentries = NULL;
 }

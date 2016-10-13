@@ -32,7 +32,7 @@ GLKMAKEFILE = Make.cheapglk
 #CC = gcc
 
 #OPTIONS = -g -Wall -Wmissing-prototypes -Wstrict-prototypes -Wno-unused -DOS_UNIX
-OPTIONS = -DOS_UNIX -r -O -S glulxe____
+OPTIONS = -DOS_UNIX -w -O -S glulxe____
 
 include $(GLKINCLUDEDIR)/$(GLKMAKEFILE)
 

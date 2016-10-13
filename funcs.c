@@ -188,7 +188,7 @@ void enter_function(glui32 addr, glui32 argc, glui32 *argv)
 /* leave_function():
    Pop the current call frame off the stack. This is very simple.
 */
-void leave_function()
+void leave_function(void)
 {
   profile_out(stackptr);
   stackptr = frameptr;

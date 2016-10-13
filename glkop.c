@@ -179,7 +179,7 @@ static char *get_game_id(void);
 /* init_dispatch():
    Set up the class hash tables and other startup-time stuff.
 */
-int init_dispatch()
+int init_dispatch(void)
 {
   int ix;
   
@@ -1497,7 +1497,7 @@ void set_library_select_hook(void (*func)(glui32))
 /* Create a string identifying this game. We use the first 64 bytes of the
    memory map, encoded as hex,
 */
-static char *get_game_id()
+static char *get_game_id(void)
 {
   /* This buffer gets rewritten on every call, but that's okay -- the caller
      is supposed to copy out the result. */

@@ -18,7 +18,7 @@ segment "exec______";
 /* execute_loop():
    The main interpreter loop. This repeats until the program is done.
 */
-void execute_loop()
+void execute_loop(void)
 {
   int done_executing = FALSE;
   int ix;
