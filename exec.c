@@ -626,6 +626,10 @@ void execute_loop(void)
         value = inst[1].value;
         arglist = pop_arguments(value, 0);
         val0 = perform_glk(inst[0].value, value, arglist);
+#ifdef TOLERATE_SUPERGLUS_BUG
+        if (inst[2].desttype == 1 && inst[2].value == 0)
+            inst[2].desttype = 0;
+#endif /* TOLERATE_SUPERGLUS_BUG */
         store_operand(inst[2].desttype, inst[2].value, val0);
         profile_out(stackptr);
         break;
@@ -672,7 +676,6 @@ void execute_loop(void)
         break;
 
       case op_restore:
-        profile_fail("restore");
         value = perform_restore(find_stream_by_id(inst[0].value), FALSE);
         if (value == 0) {
           /* We've succeeded, and the stack now contains the callstub
@@ -694,7 +697,6 @@ void execute_loop(void)
         break;
 
       case op_restoreundo:
-        profile_fail("restoreundo");
         value = perform_restoreundo();
         if (value == 0) {
           /* We've succeeded, and the stack now contains the callstub
