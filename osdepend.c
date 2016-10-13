@@ -45,13 +45,21 @@ void glulx_setrandom(glui32 seed)
 {
   if (seed == 0)
     seed = time(NULL);
+#ifndef __ORCAC__
   srandom(seed);
+#else
+  srand(seed);
+#endif
 }
 
 /* Return a random number in the range 0 to 2^32-1. */
 glui32 glulx_random()
 {
+#ifndef __ORCAC__
   return (random() << 16) ^ random();
+#else
+  return ((glui32)rand() << 16) ^ rand();
+#endif
 }
 
 #endif /* OS_UNIX */
