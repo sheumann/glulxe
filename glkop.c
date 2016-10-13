@@ -732,6 +732,7 @@ static void unparse_glk_args(dispatch_splot_t *splot, char **proto, int depth,
   void *opref;
   gluniversal_t *garglist;
   glui32 *varglist;
+  gidispatch_rock_t objrock;
   
   garglist = splot->garglist;
   varglist = splot->varglist;
@@ -833,8 +834,7 @@ static void unparse_glk_args(dispatch_splot_t *splot, char **proto, int depth,
           if (!skipval) {
             opref = garglist[gargnum].opaqueref;
             if (opref) {
-              gidispatch_rock_t objrock = 
-                gidispatch_get_objrock(opref, *cx-'a');
+              objrock = gidispatch_get_objrock(opref, *cx-'a');
               thisval = ((classref_t *)objrock.ptr)->id;
             }
             else {
@@ -1300,6 +1300,7 @@ static void release_temp_ptr_array(void **arr, glui32 addr, glui32 len, int objc
   arrayref_t *arref = NULL;
   arrayref_t **aptr;
   glui32 ix, val, addr2;
+  gidispatch_rock_t objrock;
 
   if (arr) {
     for (aptr=(&arrays); (*aptr); aptr=(&((*aptr)->next))) {
@@ -1323,8 +1324,7 @@ static void release_temp_ptr_array(void **arr, glui32 addr, glui32 len, int objc
       for (ix=0, addr2=addr; ix<len; ix++, addr2+=4) {
         void *opref = arr[ix];
         if (opref) {
-          gidispatch_rock_t objrock = 
-            gidispatch_get_objrock(opref, objclass);
+          objrock = gidispatch_get_objrock(opref, objclass);
           val = ((classref_t *)objrock.ptr)->id;
         }
         else {
